@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery Animate Color Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="animateButton">Animate Color</button>
+    <div id="box"></div>
+
+    <script>
+        $(document).ready(function () {
+            function animateCall() {
+                var isAnimating = false; // Track animation state
+
+                // When the button is clicked, animate the background color and left position
+                // $("#animateButton").click(function () {
+                    if (!isAnimating) {
+                        isAnimating = true;
+                        $("#box").animate({
+                            'background-color': "red",
+                            'left': "500px" // Animate to the right (500px)
+                        }, 3000, function () {
+                            // Animation complete, reverse the animation
+                            $("#box").animate({
+                                'background-color': "blue",
+                                'left': "0" // Animate back to the original position
+                            }, 3000, function () {
+                                // Animation complete, reset the animation state
+                                isAnimating = false;
+                            });
+                        });
+                    }
+                // });
+            }
+            setInterval(animateCall ,1000)
+        });
+    </script>
+</body>
+
+</html>

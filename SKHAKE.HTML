@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shake Effect Example</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+   <!-- Include jQuery library -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+<!-- Include jQuery UI library -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ <style>
+        /* Styling for demonstration purposes */
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Click the button to shake the div</h1>
+    <button id="shakeButton">Shake</button>
+    <div id="shakeMe"></div>
+
+    <script>
+        // jQuery code to apply the "shake" effect
+        $(document).ready(function () {
+            $("#shakeButton").click(function () {
+                // $("#shakeMe").effect("shake", { times: 3, distance: 20 }, 500);
+                $("#shakeMe").effect("highlight", { color: "yellow" }, 3000);
+           
+            });
+
+            // $("button").click(function () {
+            $("p").effect("highlight", { color: "yellow" }, 3000);
+        // });
+
+
+        });
+    </script>
+</body>
+
+</html>

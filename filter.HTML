@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Filters Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .selected {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery Filters Example</h1>
+    
+    <!-- Example List -->
+    <ul>
+        <li>Item 1</li>
+        <li class="selected">Item 2 (selected)</li>
+        <li>Item 3</li>
+        <li>Item 4 (selected)</li>
+        <li>Item 5</li>
+        <li>Item 6 (selected)</li>
+    </ul>
+    
+    <!-- Example Table -->
+    <table>
+        <tr>
+            <td>Row 1</td>
+            <td>Row 2 (selected)</td>
+        </tr>
+        <tr>
+            <td>Row 3</td>
+            <td>Row 4 (selected)</td>
+        </tr>
+        <tr>
+            <td>Row 5 143</td>
+            <td>Row 6 (selected)</td>
+        </tr>
+    </table>
+    
+    <script>
+        $(document).ready(function () {
+            // :first Filter - Select the first <li> and change its background color
+            $("ul li:first").css("backgroun/d-color", "lightgreen");
+
+            // :last Filter - Select the last <li> and change its background color
+            // $("ul li:last").css("background-color", "lightcoral");
+
+            // :even and :odd Filters - Apply alternating background colors to even and odd rows in the table
+            // $("table tr:even").css("background-color", "red");
+            // $("table tr:odd").css("background-color", "lightblue");
+
+            // :eq() Filter - Select the second <li> element (zero-based index) and change its background color
+            // $("ul li:eq(1)").css("background-color", "yellow");
+
+            // :not() Filter - Select all <li> elements except those with class "selected" and change their background color
+            // $("ul li:not(.selected)").css("background-color", "lightpink");
+
+            // :has() Filter - Select <tr> elements in the table that contain a <td> with the text "selected" and change their background color
+            $("table tr:has(td:contains('143'))").css("background-color", "lightseagreen");
+
+            // :contains() Filter - Select <li> elements that contain the text "selected" and change their background color
+            // $("ul li:contains('selected')").css("background-color", "lightcoral");
+        });
+    </script>
+</body>
+</html>

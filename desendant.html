@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>DOM Query</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<style>
+    li {
+        color: black;
+    }
+</style>
+</head>
+
+<body>
+    <h3>Children</h3>
+    <ul class='list'>
+        <li>Graphic Designing</li>
+        <li>Web Designing</li>
+        <li>Programming</li>
+ 
+            <ul>
+                <li>C Program</li>
+                <li>C++ Program</li>
+                <li>Java</li>
+                <li>C#</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        $("document").ready(function () {
+            // $('ul.list').children('li').css('color', 'green');
+            $("ul.list").children('li').css("color","red")
+        });
+    </script>
+</body>
+
+</html>

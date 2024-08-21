@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Sign Up</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            cursor: pointer;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #ccc;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        .forms {
+            text-align: left;
+        }
+
+        .active {
+            background-color: blue;
+            color: white;
+        }
+        .forms{
+            height: 300px;
+            width:500px;
+            background-color: wheat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab" id="login-tab">Login</div>
+            <div class="tab" id="signup-tab">Sign Up</div>
+        </div>
+        <div class="forms">
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#signup-form").hide();
+
+            $("#login-tab").click(function () {
+                $("#login-form").show();
+                $("#signup-form").hide();
+                $(this).addClass("active");
+                $("#signup-tab").removeClass("active");
+            });
+
+            // Click event handler for the "Sign Up" tab
+            $("#signup-tab").click(function () {
+                $("#signup-form").show();
+                $("#login-form").hide();
+                $(this).addClass("active");
+                $("#login-tab").removeClass("active");
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery Animate Color Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            /* background-color: blue; */
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="animateButton">Animate Color</button>
+    <div id="box"></div>
+
+    <script>
+        $(document).ready(function () {
+            // When the button is clicked, animate the background color
+            $("#animateButton").click(function () {
+                $("#box").animate({
+                    'background-color': "red", 'left': "500px" // Animate the background color to red
+                }, 3000);  // Animation duration: 1000ms (1 second)
+            });
+        });
+
+       
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+    <style>
+        .accordian {
+            cursor: pointer;
+            padding: 10px;
+            background-color: rgb(45, 45, 199);
+            color: aliceblue;
+        }
+
+        .pannel {
+            display: none;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="accordian">Section 1</div>
+    <div class="pannel">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus perspiciatis suscipit quas, maiores debitis
+            incidunt accusantium rem consequuntur voluptate reprehenderit.</p>
+    </div>
+    <div class="accordian">Section 1</div>
+    <div class="pannel">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus perspiciatis suscipit quas, maiores debitis
+            incidunt accusantium rem consequuntur voluptate reprehenderit.</p>
+    </div>
+    <div class="accordian">Section 1</div>
+    <div class="pannel">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus perspiciatis suscipit quas, maiores debitis
+            incidunt accusantium rem consequuntur voluptate reprehenderit.</p>
+    </div>
+
+    <div class="accordian">Section 1</div>
+    <div class="pannel">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus perspiciatis suscipit quas, maiores debitis
+            incidunt accusantium rem consequuntur voluptate reprehenderit.</p>
+    </div>
+
+
+    <script>
+        $('document').ready(function(){
+            $('.accordian').click(function(){
+                $(this).next('.pannel').slideToggle("slow")
+            })
+        })
+
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Example</title>
+    <style>
+        .accordion-input {
+            display: none;
+        }
+
+        .accordion-label {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            display: block;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .panel {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .accordion-input:checked+.accordion-label+.panel {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="radio" name="accordion" class="accordion-input" id="section1">
+    <label for="section1" class="accordion-label">Section 1</label>
+    <div class="panel">
+        <p>Content for Section 1 goes here.</p>
+    </div>
+
+    <input type="radio" name="accordion" class="accordion-input" id="section2">
+    <label for="section2" class="accordion-label">Section 2</label>
+    <div class="panel">
+        <p>Content for Section 2 goes here.</p>
+    </div>
+
+    <input type="radio" name="accordion" class="accordion-input" id="section3">
+    <label for="section3" class="accordion-label">Section 3</label>
+    <div class="panel">
+        <p>Content for Section 3 goes here.</p>
+    </div>
+
+</body>
+
+</html>

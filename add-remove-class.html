@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>Add and Remove</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<style>
+    .design {
+        color: red;
+        font-size: 25px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .design1 {
+        color: rgb(4, 114, 0);
+        font-size: 25px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+</style>
+</head>
+
+<body>
+    <h3 class='design'>Tutor Joes</h3>
+    <button id='b1'>Show</button>
+    <button id='b2'>hide</button>
+    <script src="js/jquery.js"></script>
+    <script>
+        $("document").ready(function () {
+            $('#b1').click(function () {
+                $('h3').addClass('design');
+            });
+            $('#b2').click(function () {
+                $('h3').removeClass('design');
+            });
+        });
+    </script>
+</body>
+
+</html>

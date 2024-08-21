@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        /* CSS for styling the gallery */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px;
+        }
+
+        .thumbnails {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .thumbnails img {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .main-image img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gallery">
+        <div class="thumbnails">
+            <img src="./images/1.jpeg" alt="Image 1" data-index="0">
+            <img src="./images/2.jpeg" alt="Image 2" data-index="1">
+            <img src="./images/1.jpeg" alt="Image 3" data-index="2">
+        </div>
+        <div class="main-image">
+            <img src="./images/1.jpeg" alt="Image 1">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function () {
+            // Initialize the gallery
+            let currentIndex = 0;
+
+            $(".thumbnails img").click(function () {
+                // Change the main image when a thumbnail is clicked
+                currentIndex = $(this).data("index");
+                updateMainImage(currentIndex);
+            });
+
+            function updateMainImage(index) {
+                const mainImage = $(".main-image img");
+                const thumbnails = $(".thumbnails img");
+
+                mainImage.fadeOut(200, function () {
+                    mainImage.attr("src", $thumbnails.eq(index).attr("src"));
+                    mainImage.fadeIn(200);
+                });
+            }
+
+            // Initial image
+            updateMainImage(currentIndex);
+        });
+    </script>
+</body>
+
+</html>

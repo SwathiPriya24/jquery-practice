@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        table {
+            border-collapse: collapse;
+            /* Remove default spacing between cells */
+            width: 100%;
+            /* Set the table width to 100% */
+            text-align: center;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            /* Apply cell padding */
+            border: 1px solid #ccc;
+            /* Add a border to cells */
+        }
+
+        .redCont {
+            background-color: red;
+            color: azure;
+        }
+
+        .blackCont {
+            background-color: rgb(0, 0, 0);
+            color: azure
+        }
+
+        .blueCont {
+            background-color: rgb(0, 10, 156);
+            color: azure
+        }
+
+        .greenCont {
+            background-color: rgb(0, 110, 18);
+            color: azure
+        }
+
+        #bannerSec {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>HTML</h1>
+    <h1>HTML</h1>
+    <h2>CSS</h2>
+    <h3>Javascript</h3>
+    <ul></ul>
+
+    <div class="cont"></div>
+    <div id="bannerSec">Bannar Section</div>
+    <button id="red">RED</button>
+    <button id="blue">BLUE</button>
+    <button id="green">GREEN</button>
+    <button id="black">BLACK</button>
+
+    <table border="1" padding>
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+        </tr>
+        <tr>
+            <td>Row 1, Cell 1</td>
+            <td>Row 1, Cell 2</td>
+            <td>Row 1, Cell 3</td>
+        </tr>
+        <tr>
+            <td>Row 2, Cell 1</td>
+            <td>Row 2, Cell 2</td>
+            <td>Row 2, Cell 3</td>
+        </tr>
+        <tr>
+            <td>Row 2, Cell 1</td>
+            <td>Row 2, Cell 2</td>
+            <td>Row 2, Cell 3</td>
+        </tr>
+    </table>
+
+    <ul class="list">
+
+        <li>React Js</li>
+        <li>Angular</li>
+        <li>Vue js</li>
+
+    </ul>
+
+    <p>Welcome to Jquery class </p>
+
+    <img src='./images/1.jpeg' width="300px" height="400px">
+    <form action="">
+        <label for="">Name</label>
+        <br>
+        <input type="text">
+    </form>
+    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, alias!</P>
+    <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, beatae.</P>
+    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, alias!</P>
+    <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, beatae.</P>
+    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, alias!</P>
+    <P>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, beatae.</P>
+
+    <script>
+        let redBtn = $("#red");
+        let greenBtn = $("#green");
+        let blackBtn = $("#black");
+        let blueBtn = $("#blue");
+
+
+        // $("document").ready(function () {
+        //     $("ul").html("<li>List 1 </li>");
+
+        //     $("h3").text("Javascript");
+        // });
+
+
+        // $("document").ready(function () {
+        //     $("h1").click(function () {
+        //         var a = $(this).text();
+        // var a=$(this).html();
+        //         console.log(a);
+        //     });
+        // });
+
+
+        // $("document").ready(function () {
+        //     $("div.cont").html("<h1> Jquery </h1>");
+        //     $(".cont").css({
+        //         "height": "50px",
+        //         "width": "100px",
+        //         "padding": "5px",
+        //         "background-color": "black",
+        //         "color": 'white'
+        //     });
+        // });
+
+        // NTH-CHILD
+
+        // $('document').ready(function () {
+        //     $('tr:nth-child(even)').css({"background-color":"black","color":"white"})
+        // })
+
+
+        // CONTAINS
+
+        // $("document").ready(function () {
+        //     $("p:contains()").css({'color': 'red',"text-align":"center"});
+        // });
+
+
+        //Manipulate HTML Attribute   
+        //THIS
+
+        // $("document").ready(function(){
+        // 		$('img').click(function(){
+        // 			var a=$(this).attr('src');
+        // 			$(this).attr('src','./images/2.jpeg');
+        // 		});
+        // 	});
+
+        //CHILDREN SELECTOR 
+
+        // $("document").ready(function(){
+        // 	$('ul').children('li').css('color','green');
+        // });
+
+        //FIND METHOD
+
+        // $("document").ready(function(){
+        // 	$('.list').find('li').css('color','blue');
+
+        // });
+
+        // $('document').ready(function () {
+        //     $('#bannerSec').addClass('')
+
+        // })
+        // $("document").ready(function () {
+        //     $(redBtn).click(function () {
+        //         $('#bannerSec').addClass('redCont');
+
+        //     });
+        //     $(blueBtn).click(function () {
+        //         $('#bannerSec').addClass('blueCont');
+        //     });
+        //     $(greenBtn).click(function () {
+        //         $('#bannerSec').addClass('greenCont');
+        //     });
+        //     $(blackBtn).click(function () {
+        //         $('#bannerSec').addClass('blackCont');
+        //     });
+
+        //     // $(blueBtn).click(function () {
+        //     //     $('#bannerSec').addClass('blueCont');
+        //     // });
+        // });
+
+
+        // $(document).ready(function () {
+
+        //     var $bannerSec = $('#bannerSec');
+
+        //     $(redBtn).click(function () {
+
+        //         $bannerSec.removeClass('blueCont greenCont blackCont').addClass('redCont');
+        //     });
+
+        //     $(blueBtn).click(function () {
+
+        //         $bannerSec.removeClass('redCont greenCont blackCont').addClass('blueCont');
+        //     });
+
+        //     $(greenBtn).click(function () {
+
+        //         $bannerSec.removeClass('redCont blueCont blackCont').addClass('greenCont');
+        //     });
+
+        //     $(blackBtn).click(function () {
+
+        //         $bannerSec.removeClass('redCont blueCont greenCont').addClass('blackCont');
+        //     });
+        // });
+
+        //CHILDREN
+
+        // $("document").ready(function () {
+        //     //$('ul.list').children('li:first-child').addClass('color');
+        //     $('ul.list').children('li').first().addClass('color');
+        // });
+
+        //EQ & NTH-CHILD
+
+
+        // $("document").ready(function () {
+        //     //$('ul.list').children('li:nth-child(2)').text('This is Nth Child by CSS jQuery');
+        //     $('ul').children('li').eq(1).text('Angular Js ');
+        // });
+
+        // $("document").ready(function () {
+        //     $(".cont").width('200px').height('200px').css({
+        //         'color': 'red',
+        //         'background': 'pink'
+        //     });
+        // });
+
+        $(document).ready(function () {
+            $("input").focus(function () {
+                $(this).css("background-color", "yellow");
+            });
+            $("input").blur(function () {
+                $(this).css("background-color", "blue");
+            });
+        });
+
+
+        //CLICK EVENT HIDE()
+        // $(document).ready(function () {
+        //     $('tr').click(function () {
+        //         $(this).hide();
+        //     });
+        // });
+
+        //ON
+
+
+        // $('document').ready(function () {
+        //     $('p').on({
+        //         click: function () {
+        //             $(this).css("background-color", "lightgray");
+        //         },
+        //         mouseover: function () {
+
+        //             $(this).css("color", "blue");
+        //         },
+        //         mouseleave: function () {
+
+        //             $(this).css("color", "black");
+        //         }
+
+        //     })
+        // })
+
+        
+    </script>
+
+
+
+
+
+</body>
+
+</html>

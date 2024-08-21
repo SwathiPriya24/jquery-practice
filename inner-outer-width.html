@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>inner Outer / Height Width</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        div {
+            height: 150px;
+            width: 200px;
+            background: orange;
+            padding: 10px;
+            border: 5px solid red;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>Welcome</div>
+
+    <script>
+        $("document").ready(function () {
+            //Inner Height = element+padding
+            console.log('InnerHeight : ' + $('div').innerHeight());
+            console.log('InnerWidth : ' + $('div').innerWidth());
+            //Outer Height = element+padding+border
+            console.log('outerHeight : ' + $('div').outerHeight());
+            console.log('outerWidth : ' + $('div').outerWidth());
+        });
+    </script>
+</body>
+
+</html>

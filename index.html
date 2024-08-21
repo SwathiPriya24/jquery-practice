@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+        #div1 {
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            display: none
+        }
+
+        #div2 {
+            width: 80px;
+            height: 80px;
+            background-color: green;
+            display: none
+        }
+
+        #div3 {
+            width: 80px;
+            height: 80px;
+            background-color: blue;
+            display: none
+        }
+        #para1{
+            color: red;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="hide">Hide</button>
+    <button id="fadeIn">Fade In</button>
+    <button id="fadeOut">Fade out</button>
+    <button id="fadeToggle">Fade Toggle </button>
+
+
+    <div id="div1"></div><br>
+    <div id="div2"></div><br>
+    <div id="div3"></div>
+
+    <button class="btn">Toggle Button</button>
+
+
+    <p id="para1">This is a paragraph with little content.</p>
+
+
+    <script>
+
+        // HIDE
+
+        $(document).ready(function () {
+            $("#hide").click(function () {
+                $("p").hide(1000);
+            });
+        });
+
+        
+        //TOGGLE
+
+        // $('document').ready(function(){
+        //     $('.btn').click(function(){
+        //         $('p').toggle(1000)
+        //     })
+
+        // })
+
+        // FADE IN
+
+        // $(document).ready(function () {
+        //     $("#fadeIn").click(function () {
+        //         $("#div1").fadeIn();
+        //         $("#div2").fadeIn(5000);
+        //         $("#div3").fadeIn(3000);
+        //     });
+        // });
+
+        //FADE OUT 
+
+        // $(document).ready(function () {
+        //     $("#fadeOut").click(function () {
+        //         $("#div1").fadeOut();
+        //         $("#div2").fadeOut(5000);
+        //         $("#div3").fadeOut(3000);
+        //     });
+        // });
+
+        //FADETOGGLE
+
+        // $(document).ready(function () {
+        //     $("#fadeToggle").click(function () {
+        //         $("#div1").fadeToggle();
+        //         $("#div2").fadeToggle("slow");
+        //         $("#div3").fadeToggle(3000);
+        //     });
+        // });
+
+
+    </script>
+</body>
+
+</html>

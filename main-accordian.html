@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Example</title>
+    <style>
+        .accordion {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+        }
+
+        .panel {
+            display: none;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="accordion">Section 1</div>
+    <div class="panel">
+        <p>Content for Section 1 goes here.</p>
+    </div>
+
+    <div class="accordion">Section 2</div>
+    <div class="panel">
+        <p>Content for Section 2 goes here.</p>
+    </div>
+
+    <div class="accordion">Section 3</div>
+    <div class="panel">
+        <p>Content for Section 3 goes here.</p>
+    </div>
+
+    <div class="accordion">Section 4</div>
+    <div class="panel">
+        <p>Content for Section 4 goes here.</p>
+    </div>
+
+    <div class="accordion">Section 5</div>
+    <div class="panel">
+        <p>Content for Section 5 goes here.</p>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Hide all panels by default
+            // $(".panel").hide();
+            $(".accordion").click(function () {
+                // Check if the clicked accordion is already open
+                if ($(this).next(".panel").is(":visible")) {
+                    // If the clicked accordion's next panel is already visible
+                    // (i.e., open), then...
+                    $(this).next(".panel").slideUp("fast"); // Close it (slide up)
+                } 
+                else {
+                    // If the clicked accordion's next panel is not visible
+                    // (i.e., closed), then...
+                    // Close all other open accordion sections (panels)
+                    $(".panel").slideUp("fast");
+                    // Open the clicked accordion by sliding down its panel
+                    $(this).next(".panel").slideDown("fast");
+                }
+            });
+        });
+
+       
+
+    </script>
+
+
+
+</body>
+
+</html>

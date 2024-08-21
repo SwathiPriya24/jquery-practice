@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Form Example</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Some basic styling for the form */
+        form {
+            width: 300px;
+            margin: 0 auto;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        This is some preformatted text.
+        It preserves spaces,      tabs, and
+        line breaks as they appear
+        in the HTML source code.
+    </pre>
+    
+    <h1>Sample Form</h1>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="output"></div>
+
+    <script>
+        // jQuery code to handle form submission
+        $(document).ready(function () {
+            // Target the form element by its ID
+            $("#myForm").submit(function (event) {
+                event.preventDefault(); // Prevent the default form submission behavior
+
+                // Serialize form data into a JSON object
+                var formData = $(this).serializeArray();
+
+                // Display the serialized data in the #output div
+                $("#output").html("<h2>Form Data:</h2>" + JSON.stringify(formData,2) );
+            });
+        });
+    </script>
+</body>
+</html>

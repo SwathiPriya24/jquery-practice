@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blog Pagination</title>
+    <style>
+        /* Add some basic CSS for styling */
+        .blog-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            width: 45%;
+            display: inline-block;
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 2px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background-color: white; /* Default background color */
+            color: #333; /* Default text color */
+        }
+
+        .pagination a.active {
+            background-color: blue; /* Active background color */
+            color: white; /* Active text color */
+        }
+
+        .pagination a.disabled {
+            pointer-events: none;
+            color: #aaa;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="blogContainer">
+        <!-- Blog cards will be added here -->
+    </div>
+
+    <div class="pagination" id="pagination">
+        <!-- "Previous" and "Next" buttons, and page number links will be added here -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // Array of blogs
+      // Array of blogs
+      const blogs = [{
+            "      title": "Truly Incredible India",
+            "author": "Joe Vian",
+            "image": "india",
+            "bodytext": "<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe eligendi deserunt sequi molestiae vel, architecto deleniti perferendis omnis repudiandae aliquam, explicabo nemo, laudantium. Pariatur a voluptatibus impedit fugit tenetur reprehenderit illo aliquam ipsum quae quos necessitatibus quaerat sequi eos cum ea architecto ducimus quo tempora nostrum, mollitia veniam nam! </p> <p> Cum sapiente, iste, illum inventore repudiandae quos! Odio sint sed architecto earum incidunt sapiente corporis porro enim voluptate odit recusandae laboriosam non, cupiditate consectetur necessitatibus ipsa beatae dolor, provident molestias, voluptatem illo consequatur sit. Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum, illum labore quo. </p> <p>  Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum </p>"
+        },
+
+        {
+            "title": "Wonders of the World",
+            "author": "Kishan Isaac",
+            "image": "france",
+            "bodytext": "<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe eligendi deserunt sequi molestiae vel, architecto deleniti perferendis omnis repudiandae aliquam, explicabo nemo, laudantium. Pariatur a voluptatibus impedit fugit tenetur reprehenderit illo aliquam ipsum quae quos necessitatibus quaerat sequi eos cum ea architecto ducimus quo tempora nostrum, mollitia veniam nam! </p> <p> Cum sapiente, iste, illum inventore repudiandae quos! Odio sint sed architecto earum incidunt sapiente corporis porro enim voluptate odit recusandae laboriosam non, cupiditate consectetur necessitatibus ipsa beatae dolor, provident molestias, voluptatem illo consequatur sit. Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum, illum labore quo. </p> <p>  Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum </p>"
+        },
+
+        {
+            "title": "Malaysia Tourism",
+            "author": "Jai Ganesh",
+            "image": "malaysia",
+            "bodytext": "<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe eligendi deserunt sequi molestiae vel, architecto deleniti perferendis omnis repudiandae aliquam, explicabo nemo, laudantium. Pariatur a voluptatibus impedit fugit tenetur reprehenderit illo aliquam ipsum quae quos necessitatibus quaerat sequi eos cum ea architecto ducimus quo tempora nostrum, mollitia veniam nam! </p> <p> Cum sapiente, iste, illum inventore repudiandae quos! Odio sint sed architecto earum incidunt sapiente corporis porro enim voluptate odit recusandae laboriosam non, cupiditate consectetur necessitatibus ipsa beatae dolor, provident molestias, voluptatem illo consequatur sit. Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum, illum labore quo. </p> <p>  Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum </p>"
+        },
+
+        {
+            "title": "Hills &amp; Resorts",
+            "author": "Bala Krishna",
+            "image": "resorts",
+            "bodytext": "<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe eligendi deserunt sequi molestiae vel, architecto deleniti perferendis omnis repudiandae aliquam, explicabo nemo, laudantium. Pariatur a voluptatibus impedit fugit tenetur reprehenderit illo aliquam ipsum quae quos necessitatibus quaerat sequi eos cum ea architecto ducimus quo tempora nostrum, mollitia veniam nam! </p> <p> Cum sapiente, iste, illum inventore repudiandae quos! Odio sint sed architecto earum incidunt sapiente corporis porro enim voluptate odit recusandae laboriosam non, cupiditate consectetur necessitatibus ipsa beatae dolor, provident molestias, voluptatem illo consequatur sit. Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum, illum labore quo. </p> <p>  Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum </p>"
+        },
+
+        {
+            "title": "Traditional South India",
+            "author": "Hariny Vedha",
+            "image": "india",
+            "bodytext": "<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe eligendi deserunt sequi molestiae vel, architecto deleniti perferendis omnis repudiandae aliquam, explicabo nemo, laudantium. Pariatur a voluptatibus impedit fugit tenetur reprehenderit illo aliquam ipsum quae quos necessitatibus quaerat sequi eos cum ea architecto ducimus quo tempora nostrum, mollitia veniam nam! </p> <p> Cum sapiente, iste, illum inventore repudiandae quos! Odio sint sed architecto earum incidunt sapiente corporis porro enim voluptate odit recusandae laboriosam non, cupiditate consectetur necessitatibus ipsa beatae dolor, provident molestias, voluptatem illo consequatur sit. Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum, illum labore quo. </p> <p>  Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum </p>"
+        },
+
+        {
+            "title": "10 things you should plan before a vacation",
+            "author": "Udhaiya Prasanth",
+            "image": "france",
+            "bodytext": "<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe eligendi deserunt sequi molestiae vel, architecto deleniti perferendis omnis repudiandae aliquam, explicabo nemo, laudantium. Pariatur a voluptatibus impedit fugit tenetur reprehenderit illo aliquam ipsum quae quos necessitatibus quaerat sequi eos cum ea architecto ducimus quo tempora nostrum, mollitia veniam nam! </p> <p> Cum sapiente, iste, illum inventore repudiandae quos! Odio sint sed architecto earum incidunt sapiente corporis porro enim voluptate odit recusandae laboriosam non, cupiditate consectetur necessitatibus ipsa beatae dolor, provident molestias, voluptatem illo consequatur sit. Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum, illum labore quo. </p> <p>  Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum </p>"
+        },
+
+        {
+            "title": "Kerala - God's Own Country",
+            "author": "Priyanka Krishnan",
+            "image": "malaysia",
+            "bodytext": "<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe eligendi deserunt sequi molestiae vel, architecto deleniti perferendis omnis repudiandae aliquam, explicabo nemo, laudantium. Pariatur a voluptatibus impedit fugit tenetur reprehenderit illo aliquam ipsum quae quos necessitatibus quaerat sequi eos cum ea architecto ducimus quo tempora nostrum, mollitia veniam nam! </p> <p> Cum sapiente, iste, illum inventore repudiandae quos! Odio sint sed architecto earum incidunt sapiente corporis porro enim voluptate odit recusandae laboriosam non, cupiditate consectetur necessitatibus ipsa beatae dolor, provident molestias, voluptatem illo consequatur sit. Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum, illum labore quo. </p> <p>  Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum </p>"
+        },
+
+        {
+            "title": "Bravehearts of Sivagangai",
+            "author": "Naga Arjuna",
+            "image": "resorts",
+            "bodytext": "<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe eligendi deserunt sequi molestiae vel, architecto deleniti perferendis omnis repudiandae aliquam, explicabo nemo, laudantium. Pariatur a voluptatibus impedit fugit tenetur reprehenderit illo aliquam ipsum quae quos necessitatibus quaerat sequi eos cum ea architecto ducimus quo tempora nostrum, mollitia veniam nam! </p> <p> Cum sapiente, iste, illum inventore repudiandae quos! Odio sint sed architecto earum incidunt sapiente corporis porro enim voluptate odit recusandae laboriosam non, cupiditate consectetur necessitatibus ipsa beatae dolor, provident molestias, voluptatem illo consequatur sit. Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum, illum labore quo. </p> <p>  Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum </p>"
+        },
+
+        {
+            "title": "Places to visit after retirement",
+            "author": "Leelavathi",
+            "image": "resorts",
+            "bodytext": "<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe eligendi deserunt sequi molestiae vel, architecto deleniti perferendis omnis repudiandae aliquam, explicabo nemo, laudantium. Pariatur a voluptatibus impedit fugit tenetur reprehenderit illo aliquam ipsum quae quos necessitatibus quaerat sequi eos cum ea architecto ducimus quo tempora nostrum, mollitia veniam nam! </p> <p> Cum sapiente, iste, illum inventore repudiandae quos! Odio sint sed architecto earum incidunt sapiente corporis porro enim voluptate odit recusandae laboriosam non, cupiditate consectetur necessitatibus ipsa beatae dolor, provident molestias, voluptatem illo consequatur sit. Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum, illum labore quo. </p> <p>  Libero dolore hic odit facere, odio, qui recusandae iusto quos necessitatibus non ipsam harum. Rem aliquid culpa ullam cumque saepe ea maxime deserunt amet tenetur repellendus libero molestiae eos praesentium dolor dolorum debitis nostrum </p>"
+        }
+
+        ]
+
+
+        // Number of blogs per page
+        const blogsPerPage = 2;
+
+        // Initialize the current page
+        let currentPage = 1;
+
+        // Function to display blogs and generate pagination controls
+        function displayBlogsAndPagination() {
+            const blogContainer = $('#blogContainer');
+            blogContainer.empty(); // Clear the container
+
+            // Calculate the start and end index for the current page
+            const startIndex = (currentPage - 1) * blogsPerPage;
+            const endIndex = startIndex + blogsPerPage;
+
+            // Loop through blogs for the current page
+            for (let i = startIndex; i < endIndex && i < blogs.length; i++) {
+                const blog = blogs[i];
+                const blogCard = $('<div class="blog-card"></div>');
+                blogCard.html(`
+                    <h2>${blog.title}</h2>
+                    <p>Author: ${blog.author}</p>
+                    <img src="${blog.image}.jpg" alt="${blog.title}">
+                    ${blog.bodytext}
+                `);
+                blogContainer.append(blogCard);
+            }
+
+            const pagination = $('#pagination');
+            pagination.empty(); // Clear the pagination controls
+
+            // Calculate the total number of pages
+            const totalPages = Math.ceil(blogs.length / blogsPerPage);
+
+            // Create "Previous" button
+            if (currentPage > 1) {
+                pagination.append($('<a href="#" class="prev">Previous</a>').click(() => {
+                    currentPage--;
+                    displayBlogsAndPagination();
+                }));
+            }
+
+            // Create page number links
+            for (let i = 1; i <= totalPages; i++) {
+                const pageLink = $(`<a href="#" data-page="${i}">${i}</a>`).click(function () {
+                    currentPage = parseInt($(this).data('page'));
+                    displayBlogsAndPagination();
+                });
+                if (i === currentPage) {
+                    pageLink.addClass('active');
+                }
+                pagination.append(pageLink);
+            }
+
+            // Create "Next" button
+            if (currentPage < totalPages) {
+                pagination.append($('<a href="#" class="next">Next</a>').click(() => {
+                    currentPage++;
+                    displayBlogsAndPagination();
+                }));
+            }
+        }
+
+        // Initial display and pagination generation
+        displayBlogsAndPagination();
+    </script>
+</body>
+
+</html>

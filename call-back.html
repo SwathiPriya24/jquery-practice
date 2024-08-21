@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        // $(document).ready(function () {
+        //     $("button").click(function () {
+        //         $("p").hide("slow", function () {
+        //             alert("The paragraph is now hidden");
+        //         });
+        //     });
+        // });
+
+
+        $(document).ready(function () {
+            // Function with a callback
+            function performAsyncOperation(callback) {
+                setTimeout(function () {
+                    console.log("Async operation completed.");
+                    // Call the callback function
+                    callback();
+                }, 2000); // Simulate a 2-second asynchronous operation
+            }
+
+            // Callback function to be executed after the async operation
+            function afterAsyncOperation() {
+                console.log("Callback executed.");
+            }          
+
+            // Call the function with the callback
+            performAsyncOperation(afterAsyncOperation);
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <!-- In jQuery, a callback is a function that you can pass 
+        as an argument to another function, and that callback 
+        function will be executed once the initial function has 
+        completed its operation. Callbacks are commonly used in
+         asynchronous operations, such as animations, AJAX requests, 
+         and event handling, to execute code after a specific task has 
+         finished. -->
+
+    <button>Hide</button>
+
+    <p>This is a paragraph with little content.</p>
+
+    <p>Open the browser console to see the output.</p>
+
+</body>
+
+</html>
